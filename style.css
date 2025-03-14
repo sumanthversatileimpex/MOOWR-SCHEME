@@ -629,20 +629,38 @@ textarea.form-input {
     justify-content: flex-start;
     padding-top: 10vh;
     color: white;
-    background: linear-gradient(to right, rgba(2, 22, 61, 0.6), rgba(2, 22, 61, 0.6)), 
-                url('/images/banner.jpg') no-repeat center center;
+    background: url('/images/banner.jpg') no-repeat center center;
     background-size: auto;
     background-attachment: fixed; 
     background-position: center top;
+    overflow: hidden;
+}
+
+.home-wall::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(2, 22, 61, 0.6), rgba(2, 22, 61, 0.6));
+    z-index: 1;
 }
 
 .bannerhny-info {
     position: relative;
     max-width: 700px;
-    z-index: 1;
+    z-index: 2;
     padding-left: 5%;
-    /* text-align: center; */
 }
+
+@media (max-width: 768px) {
+    .home-wall {
+        background-attachment: scroll;
+        background-size: auto;
+    }
+}
+
 
 .title-subhny {
     font-size: 18px;
@@ -655,7 +673,9 @@ textarea.form-input {
     font-weight: bold;
     color: white;
 }
-
+#inTime{
+    font-style: italic;
+}
 .bannerhny-info p {
     font-size: 18px;
     color: white;
